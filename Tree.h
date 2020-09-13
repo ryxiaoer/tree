@@ -1,4 +1,4 @@
-#pragma once
+
 #ifndef  _TREE_H_
 #define _TREE_H_
 
@@ -15,16 +15,16 @@ typedef struct BinTree
 {
 	BinTreeNode* root;
 }BinTree;
-//======================º¯Êý½Ó¿Ú=====================///
-//³õÊ¼»¯
+//======================å‡½æ•°æŽ¥å£=====================///
+//åˆå§‹åŒ–
 void BinTreeInit(BinTree *pbt);
-//´´½¨
+//åˆ›å»º
 void BinTreeCreate(BinTree* pbt);
 BinTreeNode* BinTreeCreate0();
-//¸ù¾ÝÊäÈë×Ö·û´´½¨¶þ²æÊ÷
+//æ ¹æ®è¾“å…¥å­—ç¬¦åˆ›å»ºäºŒå‰æ ‘
 void BinTreeCreatByStr(BinTree *bt, const char* str);
 BinTreeNode* BinTreeCreatByStr0(const char* str,int* index);
-//¶þ²æÊ÷µÄ±éÀú
+//äºŒå‰æ ‘çš„éåŽ†
 void PreOrder(BinTree* bt);
 void PreOrder_1(BinTreeNode* t);
 void InOrder(BinTree* bt);
@@ -33,32 +33,32 @@ void PostOrder(BinTree* bt);
 void PostOrder_1(BinTreeNode* t);
 void LeveOrder(BinTree* bt);
 void LeveOrder_1(BinTreeNode* t);
-//¶þ²æÊ÷µÄ²éÑ¯
+//äºŒå‰æ ‘çš„æŸ¥è¯¢
 BinTreeNode* BinTreeFind(BinTree *bt, ElemType x);
 BinTreeNode* BinTreeFind_1(BinTreeNode* t, ElemType x);
 BinTreeNode* BinTreeParent(BinTree* bt, ElemType x);
 BinTreeNode* BinTreeParent_1(BinTreeNode* bt, ElemType x);
-//¿½±´¶þ²æÊ÷
+//æ‹·è´äºŒå‰æ ‘
 void BinTreeCopy(BinTree* bt1,BinTree* bt2);//bt2=bt1
 BinTreeNode* BinTreeCopy_1(BinTreeNode* t);
-//ÅÐ¶Ï¶þ²æÊ÷ÊÇ·ñÏàµÈ
+//åˆ¤æ–­äºŒå‰æ ‘æ˜¯å¦ç›¸ç­‰
 bool BinTreeEqual(BinTree *bt1, BinTree *bt2);
 bool BinTreeEqual_1(BinTreeNode* t1, BinTreeNode* t2);
-//Çó¶þ²æÊ÷µÄ½Úµã¸öÊýºÍÊ÷µÄ¸ß¶È
+//æ±‚äºŒå‰æ ‘çš„èŠ‚ç‚¹ä¸ªæ•°å’Œæ ‘çš„é«˜åº¦
 int BinTreeCount(BinTree* bt);
 int BinTreeCount_1(BinTreeNode* t);
 int BinTreeHeigh(BinTree* bt);
 int BinTreeHeigh_1(BinTreeNode* t);
-//´Ý»Ù¶þ²æÊ÷
+//æ‘§æ¯äºŒå‰æ ‘
 void BinTreeDestroy(BinTree* bt);
 void BinTreeDestroy_1(BinTreeNode* t);
-//========================/º¯Êý½Ó¿Ú¶¨Òå/=====================//
-//³õÊ¼»¯
+//========================/å‡½æ•°æŽ¥å£å®šä¹‰/=====================//
+//åˆå§‹åŒ–
 void BinTreeInit(BinTree *pbt)
 {
 	pbt->root = NULL;
 }
-//´´½¨
+//åˆ›å»º
 //"ABC##DE##F##G#H##";
 inline void BinTreeCreate(BinTree * bt)
 {
@@ -76,7 +76,7 @@ inline BinTreeNode * BinTreeCreate0()
 		assert(t != NULL);
 		t->data = tmp;
 
-		//È»ºóÒÔtÎª¸ù½Úµã´´½¨×óÓÒÊ÷
+		//ç„¶åŽä»¥tä¸ºæ ¹èŠ‚ç‚¹åˆ›å»ºå·¦å³æ ‘
 		t->leftChild = BinTreeCreate0();
 		t->rightChild = BinTreeCreate0();
 		return t;
@@ -84,7 +84,7 @@ inline BinTreeNode * BinTreeCreate0()
 }
 
 
-//¸ù¾Ý×Ö·û´´½¨¶þ²æÊ÷
+//æ ¹æ®å­—ç¬¦åˆ›å»ºäºŒå‰æ ‘
 inline void BinTreeCreatByStr(BinTree * bt, const char * str)
 {
 	int index = 0;
@@ -102,7 +102,7 @@ inline BinTreeNode * BinTreeCreatByStr0(const char * str,int* index)
 		assert(t != NULL);
 		t->data = str[*index];
 		(*index)++;
-		//Ö±½Ó´«»áµ¼ÖÂstrÎ»ÖÃ²»±ä£¬ËùÒÔÐèÒª¼ÓÈëindex
+		//ç›´æŽ¥ä¼ ä¼šå¯¼è‡´strä½ç½®ä¸å˜ï¼Œæ‰€ä»¥éœ€è¦åŠ å…¥index
 		t->leftChild = BinTreeCreatByStr0(str, index);
 		(*index)++;
 		t->rightChild= BinTreeCreatByStr0(str, index);
@@ -110,7 +110,7 @@ inline BinTreeNode * BinTreeCreatByStr0(const char * str,int* index)
 	}
 }
 
-//ÏÈÐò±éÀú
+//å…ˆåºéåŽ†
 inline void PreOrder(BinTree * bt)
 {
 	PreOrder_1(bt->root);
@@ -126,7 +126,7 @@ inline void PreOrder_1(BinTreeNode * t)
 	return;
 }
 
-//ÖÐÐò±éÀú
+//ä¸­åºéåŽ†
 inline void InOrder(BinTree * bt)
 {
 	InOrder_1(bt->root);
@@ -142,7 +142,7 @@ inline void InOrder_1(BinTreeNode * t)
 	return;
 }
 
-//ºóÐò±éÀú
+//åŽåºéåŽ†
 inline void PostOrder(BinTree * bt)
 {
 	PostOrder_1(bt->root);
@@ -158,7 +158,7 @@ inline void PostOrder_1(BinTreeNode * t)
 	return;
 }
 
-//²éÕÒx£¬²¢·µ»ØËùÔÚµØÖ·
+//æŸ¥æ‰¾xï¼Œå¹¶è¿”å›žæ‰€åœ¨åœ°å€
 inline BinTreeNode * BinTreeFind(BinTree* bt, ElemType x)
 {
 	return BinTreeFind_1(bt->root, x);
@@ -181,7 +181,7 @@ inline BinTreeNode * BinTreeFind_1(BinTreeNode * t, ElemType x)
 	}
 }
 
-//²éÕÒ¸¸½Úµã²¢·µ»ØµØÖ·
+//æŸ¥æ‰¾çˆ¶èŠ‚ç‚¹å¹¶è¿”å›žåœ°å€
 inline BinTreeNode* BinTreeParent(BinTree* bt, ElemType x)
 {
 	return BinTreeParent_1(bt->root, x);
@@ -189,7 +189,7 @@ inline BinTreeNode* BinTreeParent(BinTree* bt, ElemType x)
 inline BinTreeNode * BinTreeParent_1(BinTreeNode * t, ElemType x)
 {
 	BinTreeNode* p = NULL;
-	//Èç¹û²»´æÔÚ»òÕß²éÕÒµÄÊÇ¸ù½Úµã£¬ÎÞ¸¸½Úµã
+	//å¦‚æžœä¸å­˜åœ¨æˆ–è€…æŸ¥æ‰¾çš„æ˜¯æ ¹èŠ‚ç‚¹ï¼Œæ— çˆ¶èŠ‚ç‚¹
 	if(t==NULL || t->data==x) 
 		return NULL;
 
@@ -202,7 +202,7 @@ inline BinTreeNode * BinTreeParent_1(BinTreeNode * t, ElemType x)
 	return BinTreeParent_1(t->rightChild, x);
 }
 
-//¿½±´¶þ²æÊ÷bt2=bt1
+//æ‹·è´äºŒå‰æ ‘bt2=bt1
 inline void BinTreeCopy(BinTree * bt1, BinTree * bt2)
 {
 	bt2->root = BinTreeCopy_1(bt1->root);
@@ -220,7 +220,7 @@ inline BinTreeNode * BinTreeCopy_1(BinTreeNode * t)
 	return tmp;
 }
 
-//ÅÐ¶ÏÁ½¸ö¶þ²æÊ÷ÊÇ·ñÏàµÈ
+//åˆ¤æ–­ä¸¤ä¸ªäºŒå‰æ ‘æ˜¯å¦ç›¸ç­‰
 
 inline bool BinTreeEqual(BinTree * bt1, BinTree * bt2)
 {
@@ -228,12 +228,12 @@ inline bool BinTreeEqual(BinTree * bt1, BinTree * bt2)
 }
 inline bool BinTreeEqual_1(BinTreeNode * t1, BinTreeNode * t2)
 {
-	///ÓÐNULL´æÔÚÊ±
+	///æœ‰NULLå­˜åœ¨æ—¶
 	if (t1 == NULL && t2 == NULL)
 		return true;
 	if (t1 == NULL || t2 == NULL)
 		return false;
-	///ÎÞNULL
+	///æ— NULL
 	if (t1->data == t2->data
 		&&BinTreeEqual_1(t1->leftChild, t2->leftChild) 
 		&& BinTreeEqual_1(t1->rightChild, t2->rightChild))
@@ -242,8 +242,8 @@ inline bool BinTreeEqual_1(BinTreeNode * t1, BinTreeNode * t2)
 		return false;
 }
 
-//½Úµã¸öÊý
-inline int BinTreeCount(BinTree * bt)//¸ù+×óÊ÷+ÓÒÊ÷
+//èŠ‚ç‚¹ä¸ªæ•°
+inline int BinTreeCount(BinTree * bt)//æ ¹+å·¦æ ‘+å³æ ‘
 {
 	return BinTreeCount_1(bt->root);
 }
@@ -256,7 +256,7 @@ inline int BinTreeCount_1(BinTreeNode * t)
 	}
 }
 
-//Çó¸ß¶È
+//æ±‚é«˜åº¦
 inline int BinTreeHeigh(BinTree * bt)
 {
 	return BinTreeHeigh_1(bt->root);
@@ -270,7 +270,7 @@ inline int BinTreeHeigh_1(BinTreeNode * t)
 	}
 }
 
-//´Ý»Ù¶þ²æÊ÷
+//æ‘§æ¯äºŒå‰æ ‘
 inline void BinTreeDestroy(BinTree * bt)
 {
 	BinTreeDestroy_1(bt->root);
@@ -284,8 +284,8 @@ inline void BinTreeDestroy_1(BinTreeNode * t)
 	free(t);
 }
 
-//²ã´Î±éÀúÐèÒªÏÈ½¨Á¢Ò»¸ö¶ÓÁÐ¡£
-//¸ù½ÚµãÈë¶Ó£¬³ö¶Ó£¬ÅÐ¶Ï³ö¶ÓÆä×óÓÒÊ÷ÊÇ·ñÎª¿Õ£¬²»Îª¿ÕÊ±Èë¶ÓÐÂ½Úµã
+//å±‚æ¬¡éåŽ†éœ€è¦å…ˆå»ºç«‹ä¸€ä¸ªé˜Ÿåˆ—ã€‚
+//æ ¹èŠ‚ç‚¹å…¥é˜Ÿï¼Œå‡ºé˜Ÿï¼Œåˆ¤æ–­å‡ºé˜Ÿå…¶å·¦å³æ ‘æ˜¯å¦ä¸ºç©ºï¼Œä¸ä¸ºç©ºæ—¶å…¥é˜Ÿæ–°èŠ‚ç‚¹
 /*
 inline void LeveOrder(BinTreeNode * t)
 {
@@ -293,11 +293,11 @@ inline void LeveOrder(BinTreeNode * t)
 	{
 		LinkQueue Q;
 		LinkQueueInit(&Q);
-		LinkQueueEnQue(&Q, t);//¸ù½«½ÚµãÈë¶Ó
+		LinkQueueEnQue(&Q, t);//æ ¹å°†èŠ‚ç‚¹å…¥é˜Ÿ
 		while (!LinkQueueEmpty(&Q))
 		{
-			BinTreeNode* p = LinkQueueFront(&Q); //È¡¶ÓÍ·ÔªËØ
-			LinkQueueDeQue(&Q);//³ö¶Ó
+			BinTreeNode* p = LinkQueueFront(&Q); //å–é˜Ÿå¤´å…ƒç´ 
+			LinkQueueDeQue(&Q);//å‡ºé˜Ÿ
 			printf("%c", p->data);
 			if (p->leftChild != NULL )
 			{
